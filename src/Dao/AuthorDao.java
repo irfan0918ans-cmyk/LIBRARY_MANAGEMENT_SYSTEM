@@ -49,9 +49,7 @@ public class AuthorDao {
             System.out.println("Author not found");
         }catch (Exception e){
             e.printStackTrace();
-        return retriveAuthor;
         }
-
         return retriveAuthor;
     }
 

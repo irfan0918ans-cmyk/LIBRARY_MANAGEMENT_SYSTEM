@@ -1,6 +1,6 @@
 package Dao;
 
-import model.Author;
+
 import model.Book;
 import utils.DbConnection;
 
@@ -23,37 +23,6 @@ public class BookDao {
         }catch (SQLException e){
             e.printStackTrace();
         }
-    }
-
-    public Book getBookByName(String bookName){
-        String sql = "Select * from book_tb where ( name ) =?";
-        Book retrivedBook = null;
-        String nameRetrived = null;
-        double priceRetrived = 0.0;
-        String editionRetrived =  null;
-        Author authorRetrived = null;
-        int authorId =0;
-
-        try(Connection connection = DbConnection.getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement(sql)){
-            preparedStatement.setString(1, bookName);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                nameRetrived = resultSet.getString("name");
-                priceRetrived = resultSet.getDouble("price");
-                editionRetrived = resultSet.getString("edition");
-
-                authorId= resultSet.getInt("author_id");
-                authorRetrived = new Author("Unknown");
-                authorRetrived.setId(authorId);
-
-                retrivedBook = new Book(nameRetrived,priceRetrived,editionRetrived,authorRetrived);
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return retrivedBook;
     }
 
     public void deleteBookByName(String bookName){

@@ -3,13 +3,11 @@ package crud;
 import Dao.BookDao;
 import services.BookServices;
 
-import java.util.Scanner;
-
 public class bookCrud {
     public static void bookCrudfun(char option) {
         BookDao bookDao = new BookDao();
         BookServices bookServices = new BookServices(bookDao);
-        Scanner sc = new Scanner(System.in);
+
         switch(option){
             case 'a','A':
                 bookServices.addBookServices();

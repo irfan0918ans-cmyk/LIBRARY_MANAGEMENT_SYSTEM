@@ -2,8 +2,7 @@ package controller;
 
 import crud.authorCrud;
 import crud.bookCrud;
-import java.util.Scanner;
-
+import utils.scannerUtil;
 public class MainController {
 
     public static void menu(){
@@ -19,14 +18,13 @@ public class MainController {
         System.out.print("Enter Choice ➜  ");
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         System.out.println("|--------------LIBRARY MANAGEMENT SYSTEM---------------║");
         int choice=0;
 
         while (choice != 3) {
             menu();
-            choice = sc.nextInt();
-            sc.nextLine();
+            choice = scannerUtil.nextInt();
+
             switch (choice) {
                 case 1:
                     char options;
@@ -34,9 +32,9 @@ public class MainController {
                         System.out.println();
                         System.out.println(" A ➜ Add Author \n B ➜ Delete Author \n C ➜ update Author \n D ➜ Show All Author \n E ➜ Go Back to Main Menu \n F ➜ Exit Program");
                         System.out.print("Enter Choice ➜ ");
-                        options = sc.next().charAt(0);
+                        options = scannerUtil.nextChar();
                         System.out.println();
-                        sc.nextLine();
+
                         if(options == 'e' || options == 'E'){
                             System.out.println("Returning to Manin Menu...");
                             break;
@@ -54,9 +52,7 @@ public class MainController {
                         System.out.println();
                         System.out.println(" A ➜ Add Book \n B ➜ Delete Book \n C ➜ Update Edition or Price \n D ➜ Show All Books \n E ➜ Go Back to Main Menu \n F ➜ Exit Program");
                         System.out.print("Enter Choice ➜ ");
-                        option = sc.next().charAt(0);
-                        System.out.println();
-                        sc.nextLine();
+                        option = scannerUtil.nextChar();
                         if(option == 'e' || option == 'E'){
                             System.out.println("Returning to Manin Menu...");
                             break;
